@@ -1,0 +1,53 @@
+{
+  "name": "nESRGANplus_ploss_mlp3reg_x2_textzoom_RRDB16_100000"
+  , "suffix": ""
+  , "model": "srragan"
+  , "scale": 2
+  , "gpu_ids": [0] // [0, 1]
+
+  , "datasets": {
+    "test_1": { // the 1st test dataset
+      "name": "easy"
+      , "mode": "LRHR"
+      , "dataroot_LR": "/home/s2020420/TextZoom/img_dataset/test/easy/LR"
+      , "dataroot_HR": "/home/s2020420/TextZoom/img_dataset/test/easy/HR"
+      , "HR_size": 128
+      , "HR_height": 32 // textzoom only
+    }
+    , "test_2": { // the 2nd test dataset
+      "name": "medium"
+      , "mode": "LRHR"
+      , "dataroot_LR": "/home/s2020420/TextZoom/img_dataset/test/medium/LR"
+      , "dataroot_HR": "/home/s2020420/TextZoom/img_dataset/test/medium/HR"
+      , "HR_size": 128
+      , "HR_height": 32 // textzoom only
+    }
+    , "test_3": { // the 3rd test dataset
+      "name": "hard"
+      , "mode": "LRHR"
+      , "dataroot_LR": "/home/s2020420/TextZoom/img_dataset/test/hard/LR"
+      , "dataroot_HR": "/home/s2020420/TextZoom/img_dataset/test/hard/HR"
+      , "HR_size": 128
+      , "HR_height": 32 // textzoom only
+    }
+
+  }
+
+  , "path": {
+    "root": "/home/s2020420/ESRGANplus"
+    , "pretrain_model_G": "/home/s2020420/ESRGANplus/experiments/nESRGANplus_ploss_mlp3reg_x2_textzoom_RRDB16/models/100000_G.pth"
+  }
+
+  , "network_G": {
+    "which_model_G": "RRDB_net" // RRDB_net | sr_resnet
+    , "norm_type": null
+    , "mode": "CNA"
+    , "nf": 64
+    , "nb": 16  // 23
+    , "in_nc": 3
+    , "out_nc": 3
+
+    , "gc": 32
+    , "group": 1
+  }
+}

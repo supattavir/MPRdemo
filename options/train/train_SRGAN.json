@@ -1,0 +1,87 @@
+// Not total the same as SRGAN in <Photo-Realistic Single Image Super-Resolution Using a Generative Adversarial Network>
+{
+  "name": "SRGAN_new_pl1l2_x4_DIV2K" //  please remove "debug_" during training
+  , "use_tb_logger": true
+  , "model":"srgan"
+  , "scale": 4
+  , "gpu_ids": [0, 1]
+
+  , "datasets": {
+    "train": {
+      "name": "DIV2K"
+      , "mode": "LRHR"
+      , "dataroot_HR": "/home/s2020420/datasets/DIV2K/DIV2K_train_HR_sub.lmdb"
+      , "dataroot_LR": "/home/s2020420/datasets/DIV2K/DIV2K_train_LR_bicubic_X4_sub.lmdb"
+      , "subset_file": null
+      , "use_shuffle": true
+      , "n_workers": 0
+      , "batch_size": 16
+      , "HR_size": 128
+      , "use_flip": true
+      , "use_rot": true
+    }
+    , "val": {
+      "name": "val_set14_part"
+      , "mode": "LRHR"
+      , "dataroot_HR": "/home/s2020420/datasets/Set14/GTmod12"
+      , "dataroot_LR": "/home/s2020420/datasets/Set14/LRbicx4"
+    }
+  }
+
+  , "path": {
+    "root": "/home/s2020420/ESRGANplus"
+    // , "resume_state": "/home/s2020420/ESRGANplus/experiments/SRGAN_x4_DIV2K/training_state/480000.state"
+    , "pretrain_model_G": "/home/s2020420/ESRGANplus/experiments/pretrained_models/RRDB_PSNR_x4_old_arch.pth"
+  }
+
+  , "network_G": {
+    "which_model_G": "sr_resnet" // RRDB_net | sr_resnet
+    , "norm_type": null
+    , "mode": "CNA"
+    , "nf": 64
+    , "nb": 16
+    , "in_nc": 3
+    , "out_nc": 3
+  }
+  , "network_D": {
+    "which_model_D": "discriminator_vgg_128"
+    , "norm_type": "batch"
+    , "act_type": "leakyrelu"
+    , "mode": "CNA"
+    , "nf": 64
+    , "in_nc": 3
+  }
+
+  , "train": {
+    "lr_G": 0.0001
+    , "weight_decay_G": 0
+    , "beta1_G": 0.9
+    , "lr_D": 0.0001
+    , "weight_decay_D": 0
+    , "beta1_D": 0.9
+    , "lr_scheme": "MultiStepLR"
+    , "lr_steps": [50000, 100000, 200000, 300000]
+    , "lr_gamma": 0.5
+
+    , "pixel_criterion": "l1"
+    , "pixel_weight": 0.01
+    , "feature_criterion": "l1"
+    , "feature_weight": 1
+    , "gan_type": "vanilla"
+    , "gan_weight": 0.005
+
+    //for wgan-gp
+    // , "D_update_ratio": 1
+    // , "D_init_iters": 0
+    // , "gp_weigth": 10
+
+    , "manual_seed": 0
+    , "niter": 150000
+    , "val_freq": 5000
+  }
+
+  , "logger": {
+    "print_freq": 50
+    , "save_checkpoint_freq": 5000
+  }
+}
