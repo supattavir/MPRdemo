@@ -1,0 +1,11 @@
+opencv-python==4.7.0.68
+Pillow==9.3.0
+protobuf==3.20.3
+pyarrow==11.0.0
+streamlit==1.18.1
+tensorboardX==2.6
+torch==1.13.1
+torchaudio==0.13.1
+torchvision==0.14.1
+tornado==6.2
+tqdm==4.64.1
