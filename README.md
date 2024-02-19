@@ -17,3 +17,6 @@
     ```
     streamlit run webui.py
     ```
+
+### Citation
+Viriyavisuthisakul, S., Kaothanthong, N., Sanguansat, P. et al. Parametric regularization loss in super-resolution reconstruction. Machine Vision and Applications 33, 71 (2022). https://doi.org/10.1007/s00138-022-01315-9
