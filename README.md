@@ -2,7 +2,7 @@
 
 ## MPR Demo
 
-![Result](https://drive.usercontent.google.com/download?id=1GCs18knA3rCmT-jua308PgMUWo5dZLkL)
+![Result](https://drive.usercontent.google.com/download?id=1kAne7Gn1Buz-6lBd3e1enfnYPU9PzLJD)
 
 ### How to create the MPR Demo
 
