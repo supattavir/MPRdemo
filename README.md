@@ -4,8 +4,6 @@
 
 ![Result](https://drive.usercontent.google.com/download?id=1GCs18knA3rCmT-jua308PgMUWo5dZLkL)
 
-https://drive.google.com/file/d/1GCs18knA3rCmT-jua308PgMUWo5dZLkL/view?usp=sharing
-
 ### How to create the MPR Demo
 
 1. Download the file and unzip
